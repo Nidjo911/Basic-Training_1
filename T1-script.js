@@ -4,17 +4,26 @@
 
 Fetch or Load: If you have the CSV data on a server, use fetch to retrieve it asynchronously:
 ``javascript
+
+*/
+
+
 const url = 'path/to/your/csv/file.csv';
 
+
 fetch(url)
-.then(response => response.text())
-.then(csvData => {
-// Process the CSV data here
-})
-.catch(error => {
-console.error('Error fetching CSV data:', error);
-});
+    .then(response => response.text())
+    .then(csvData => {
+        // Process the CSV data here
+    })
+    .catch(error => {
+        console.error('Error fetching CSV data:', error);
+    });
 ``
+
+
+
+/* 
 
 Directly Load: If the CSV data is directly available as a string, you can use it directly:
 javascript const csvData = ` column1,column2,column3 1,2,3 4,5,6 `;

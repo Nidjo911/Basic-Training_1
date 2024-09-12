@@ -1,0 +1,5 @@
+-- Upload .csv file
+-- How to see the data?
+    -- Plot? How?
+
+    
