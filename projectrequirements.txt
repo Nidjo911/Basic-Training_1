@@ -1,3 +1,0 @@
-- Connect to DB
-- Show relations with products (Group-subgroup)
-- Use VueJS

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        // Function to create chart
+        function createChart(chartId, type, labels, datasets, options = {}) {
+            const ctx = document.getElementById(chartId);
+            new Chart(ctx, {
+                type: type,
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Data',
+                        data: datasets,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Chart Title'
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to load data (replace this with your actual data loading logic)
+        async function loadData() {
+            // Simulating asynchronous data loading
+            return await fetch('https://api.example.com/data')
+                .then(response => response.json())
+                .catch(error => console.error('Error loading data:', error));
+        }
+
+        // Main execution
+        window.onload = async () => {
+            try {
+                const data = await loadData();
+                
+                // Assuming data format is { labels: [], datasets: [] }
+                // createChart('myChart', 'bar', data.labels, data.datasets);
+                createChart('myChart', 'bar', [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
+                console.log('Chart created successfully');
+            } catch (error) {
+                console.error('Failed to create chart:', error);
+            }
+        };
+    </script>
+</body>
+</html>
